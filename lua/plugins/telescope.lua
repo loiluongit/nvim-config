@@ -19,5 +19,6 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Recent files' })
+    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
   end,
 }

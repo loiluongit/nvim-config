@@ -84,6 +84,7 @@ Leader key is `<Space>`.
 | `<leader>fb` | Buffers |
 | `<leader>fh` | Help tags |
 | `<leader>fo` | Recent files |
+| `<leader>fk` | Search keymaps |
 
 ### File explorer (neo-tree)
 
