@@ -8,6 +8,7 @@ Personal Neovim configuration, managed with [lazy.nvim](https://github.com/folke
 - `git`
 - `ripgrep` (Telescope live grep)
 - `make` + a C compiler (builds `telescope-fzf-native`)
+- [`lazygit`](https://github.com/jesseduffield/lazygit) (git TUI, opened from inside Neovim)
 - A [Nerd Font](https://www.nerdfonts.com/) set in your terminal (icons in neo-tree, lualine, telescope)
 
 ## Setup
@@ -50,6 +51,7 @@ lua/
     telescope.lua            # fuzzy finder
     lualine.lua               # statusline
     gitsigns.lua              # git gutter signs
+    lazygit.lua                # lazygit floating terminal
     editor.lua                # autopairs + Comment.nvim
 ```
 
@@ -85,6 +87,13 @@ Leader key is `<Space>`.
 | `<leader>fh` | Help tags |
 | `<leader>fo` | Recent files |
 | `<leader>fk` | Search keymaps |
+
+### Git (lazygit)
+
+| Keys | Action |
+|---|---|
+| `<leader>gg` | Open lazygit (floating) |
+| `<leader>gf` | Open lazygit filtered to current file |
 
 ### File explorer (neo-tree)
 

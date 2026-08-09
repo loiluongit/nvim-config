@@ -67,6 +67,7 @@ main() {
   brew_ensure neovim
   brew_ensure git
   brew_ensure ripgrep
+  brew_ensure lazygit
   brew_cask_ensure font-jetbrains-mono-nerd-font
 
   link_config
