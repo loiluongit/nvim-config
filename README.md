@@ -1,4 +1,4 @@
-# loiluongit-newvim
+# nvim-config
 
 Personal Neovim configuration, managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 
