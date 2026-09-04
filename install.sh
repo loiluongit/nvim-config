@@ -4,6 +4,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 NVIM_CONFIG="$HOME/.config/nvim"
+GHOSTTY_CONFIG="$HOME/.config/ghostty/config"
 
 green() { printf '\033[32m%s\033[0m\n' "$1"; }
 yellow() { printf '\033[33m%s\033[0m\n' "$1"; }
@@ -55,6 +56,27 @@ link_config() {
   green "✓ linked"
 }
 
+link_ghostty() {
+  local src="$REPO_DIR/ghostty/config"
+
+  if [ -L "$GHOSTTY_CONFIG" ] && [ "$(readlink "$GHOSTTY_CONFIG")" = "$src" ]; then
+    green "✓ ~/.config/ghostty/config already linked to $src"
+    return
+  fi
+
+  if [ -e "$GHOSTTY_CONFIG" ] || [ -L "$GHOSTTY_CONFIG" ]; then
+    local backup
+    backup="${GHOSTTY_CONFIG}.bak.$(date +%Y%m%d%H%M%S)"
+    yellow "→ existing ~/.config/ghostty/config found, moving it to $backup"
+    mv "$GHOSTTY_CONFIG" "$backup"
+  fi
+
+  yellow "→ linking ~/.config/ghostty/config -> $src"
+  mkdir -p "$(dirname "$GHOSTTY_CONFIG")"
+  ln -s "$src" "$GHOSTTY_CONFIG"
+  green "✓ linked (restart Ghostty or press Cmd+Shift+, to reload)"
+}
+
 sync_plugins() {
   yellow "→ syncing plugins (lazy.nvim + mason + treesitter)"
   nvim --headless "+Lazy! sync" +qa
@@ -71,6 +93,7 @@ main() {
   brew_cask_ensure font-jetbrains-mono-nerd-font
 
   link_config
+  link_ghostty
   sync_plugins
 
   green "Done. Open nvim to start using it."

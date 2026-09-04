@@ -1,0 +1,6 @@
+# Forward Cmd+arrow to the running program (nvim) as CSI-u sequences
+# with the super modifier (param 9 = 1 + super(8)).
+keybind = cmd+left=csi:1;9D
+keybind = cmd+right=csi:1;9C
+keybind = cmd+up=csi:1;9A
+keybind = cmd+down=csi:1;9B

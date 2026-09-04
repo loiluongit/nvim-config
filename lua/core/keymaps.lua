@@ -75,3 +75,11 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- VSCode-style Cmd navigation (needs ~/.config/ghostty/config forwarding cmd+arrows)
+vim.keymap.set({ 'n', 'v' }, '<D-Left>', '^', opts) -- start of line (first non-blank)
+vim.keymap.set({ 'n', 'v' }, '<D-Right>', '$', opts) -- end of line
+vim.keymap.set({ 'n', 'v' }, '<D-Up>', 'gg', opts) -- top of file
+vim.keymap.set({ 'n', 'v' }, '<D-Down>', 'G', opts) -- bottom of file
+vim.keymap.set('i', '<D-Left>', '<C-o>^', opts)
+vim.keymap.set('i', '<D-Right>', '<C-o>$', opts)
