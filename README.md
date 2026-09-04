@@ -80,6 +80,7 @@ Leader key is `<Space>`.
 | `<leader>bg` | Toggle background transparency |
 | `<D-Left>` / `<D-Right>` | Start / end of line (VSCode-style, needs Ghostty — see below) |
 | `<D-Up>` / `<D-Down>` | Top / bottom of file |
+| `<A-j>` / `<A-k>` | Move current line down / up |
 
 ### Files / search (Telescope)
 
@@ -138,7 +139,13 @@ forwarding them would break normal terminal copy/paste in every other program. S
 `vim.o.clipboard = 'unnamedplus'` is set, plain `y` and `p` already use the macOS
 clipboard.
 
-Not on Ghostty? Skip it — everything else works, only the `<D-...>` maps go dead.
+`alt+j` / `alt+k` are forwarded the same way (`106;3u` / `107;3u`) to drive the
+move-line-up/down maps. Only those two combos are forwarded — setting
+`macos-option-as-alt = true` instead would work, but would stop Option from typing
+special characters (`∆ ˚ ƒ`) in every other terminal program.
+
+Not on Ghostty? Skip it — everything else works, only the `<D-...>` and `<A-...>` maps
+go dead.
 
 ## Updating plugins
 

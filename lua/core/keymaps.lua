@@ -83,3 +83,7 @@ vim.keymap.set({ 'n', 'v' }, '<D-Up>', 'gg', opts) -- top of file
 vim.keymap.set({ 'n', 'v' }, '<D-Down>', 'G', opts) -- bottom of file
 vim.keymap.set('i', '<D-Left>', '<C-o>^', opts)
 vim.keymap.set('i', '<D-Right>', '<C-o>$', opts)
+
+-- Move current line up/down (needs ghostty/config forwarding alt+j / alt+k)
+vim.keymap.set('n', '<A-j>', '<cmd>m +1<CR>==', opts) -- move line down
+vim.keymap.set('n', '<A-k>', '<cmd>m -2<CR>==', opts) -- move line up

@@ -4,3 +4,9 @@ keybind = cmd+left=csi:1;9D
 keybind = cmd+right=csi:1;9C
 keybind = cmd+up=csi:1;9A
 keybind = cmd+down=csi:1;9B
+
+# Forward alt+j / alt+k only (j=106, k=107; param 3 = 1 + alt(2)).
+# Targeted on purpose: macos-option-as-alt=true would stop Option from
+# typing special chars (∆ ˚ ƒ) in every other terminal program.
+keybind = alt+j=csi:106;3u
+keybind = alt+k=csi:107;3u
